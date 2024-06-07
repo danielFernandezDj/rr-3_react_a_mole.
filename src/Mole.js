@@ -1,5 +1,6 @@
 // Components
 import { useEffect } from 'react'
+import { useSound } from 'use-sound';
 
 const Mole = (props) => {
 
@@ -11,11 +12,24 @@ const Mole = (props) => {
         return () => clearTimeout(timer)
     })
 
+    const [playTouch] = useSound(
+        '/moleUp.wav',
+        { volume: 0.25 }
+    );
+
     return (
         <div>
-            <img style={{ 'width': '10vw' }} src={'/mole.png'} onClick={props.handleClick} />
+            <img
+                style={{ 'width': '10vw' }}
+                src={'/mole.png'}
+                onClick={() => {
+                    props.handleClick()
+                    playTouch()
+                }}
+            />
         </div>
     )
+
 }
 
 export default Mole
