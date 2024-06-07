@@ -13,8 +13,8 @@ const Mole = (props) => {
     })
 
     const [playTouch] = useSound(
-        '/moleUp.wav',
-        { volume: 0.25 }
+        '/moleDied.wav',
+        { volume: 0.35 }
     );
 
     return (
